@@ -16,6 +16,7 @@
 </html>
 
 <?php
+session_start();
 
 $options = [ 
     "paper",
@@ -23,21 +24,18 @@ $options = [
     "scissors",
 ];
 
-
 $_SESSION['pcchoice'] = $key = array_rand($options);
 echo $options[$key]; 
 
-if (isset($_POST["rock"]) && ($_SESSION['pcchoice'] == $options[0]))
-{
-    echo "You lost";
-};
-
-if (isset($_POST["rock"]) && ($_SESSION['pcchoice'] == $options[1])) 
-{
-    echo "Tie!";
-};
-
-if (isset($_POST["rock"]) && ($_SESSION['pcchoice'] == $options[2]))
-{
-    echo "You won!";
-};
+if (isset($_POST["rock"]) && ($_SESSION['pcchoice'] = $options[$key][0]))
+    {
+        echo "You lost";
+    }
+elseif (isset($_POST["rock"]) && ($_SESSION['pcchoice'] = $options[$key][1]))
+    {
+        echo "Tie!";
+    }
+ elseif (isset($_POST["rock"]) && ($_SESSION['pcchoice'] = $options[$key][2]))
+    {
+        echo "You won!";
+    };
