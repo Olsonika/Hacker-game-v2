@@ -24,20 +24,52 @@ $options = [
     "scissors",
 ];
 
-$_SESSION['pcchoice'] = $key = array_rand($options);
-echo $options[$key]; 
+if (!isset($_SESSION['pcchoice']))
+    $_SESSION['pcchoice'] = array_rand($options);
+
+echo $options[$_SESSION['pcchoice']]; 
 
 if (isset($_POST["rock"])) {
-  if ($_SESSION['pcchoice'] = $key = $options[0])
+  if ($options[$_SESSION['pcchoice']] == $options[0])
     {
         echo "You lost";
     }
-elseif ($_SESSION['pcchoice'] = $key = $options[1])
+elseif ($options[$_SESSION['pcchoice']] == $options[1])
     {
         echo "Tie!";
     }
- elseif ($_SESSION['pcchoice'] = $key = $options[2])
+elseif ($options[$_SESSION['pcchoice']] == $options[2])
     {
         echo "You won!";
     }
 };
+
+if (isset($_POST["paper"])) {
+    if ($options[$_SESSION['pcchoice']] == $options[0])
+      {
+          echo "Tie!";
+      }
+  elseif ($options[$_SESSION['pcchoice']] == $options[1])
+      {
+          echo "You won!";
+      }
+  elseif ($options[$_SESSION['pcchoice']] == $options[2])
+      {
+          echo "You lost!";
+      }
+  };
+
+  if (isset($_POST["scissors"])) {
+    if ($options[$_SESSION['pcchoice']] == $options[0])
+      {
+          echo "You won";
+      }
+  elseif ($options[$_SESSION['pcchoice']] == $options[1])
+      {
+          echo "You lost!";
+      }
+  elseif ($options[$_SESSION['pcchoice']] == $options[2])
+      {
+          echo "Tie!";
+      }
+  };
