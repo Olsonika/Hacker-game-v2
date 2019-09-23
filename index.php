@@ -27,15 +27,17 @@ $options = [
 $_SESSION['pcchoice'] = $key = array_rand($options);
 echo $options[$key]; 
 
-if (isset($_POST["rock"]) && ($_SESSION['pcchoice'] = $options[$key][0]))
+if (isset($_POST["rock"])) {
+  if ($_SESSION['pcchoice'] = $key = $options[0])
     {
         echo "You lost";
     }
-elseif (isset($_POST["rock"]) && ($_SESSION['pcchoice'] = $options[$key][1]))
+elseif ($_SESSION['pcchoice'] = $key = $options[1])
     {
         echo "Tie!";
     }
- elseif (isset($_POST["rock"]) && ($_SESSION['pcchoice'] = $options[$key][2]))
+ elseif ($_SESSION['pcchoice'] = $key = $options[2])
     {
         echo "You won!";
-    };
+    }
+};
